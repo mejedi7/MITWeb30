@@ -6,6 +6,7 @@ class NFTCollection :
 
     def __init__(self) :
         self.tokentype = TokenType.NOTERC
+        self.contract_addresses = []
         self.attribute_dict = {}
 
     def populate_from_opensea(self, os_collection_slug) :
@@ -24,6 +25,8 @@ class NFTCollection :
                 self.tokentype = TokenType.ERC1155
             case _:
                 self.tokentype = TokenType.NOTERC
+
+
 
     def print_os_info(self):
         print( json.dumps( self.attribute_dict[ 'os_collection_info' ], indent=2) )
